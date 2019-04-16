@@ -1,0 +1,29 @@
+{
+    "name": "hizbul/laravel-sms-verification",
+    "description": "Send SMS to verify your phone number in laravel.",
+    "keywords": ["SMS Verification Laravel", "SMS Verification", "SMS Verification OnnoRokom"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hizbul Bahar",
+            "email": "hizbul.ku@gmail.com",
+            "homepage": "http://codesolution.biz",
+	        "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hizbul\\SmsVerification\\SmsVerificationProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Hizbul\\SmsVerification\\": "src/"
+        }
+    }
+}
