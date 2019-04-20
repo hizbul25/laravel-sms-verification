@@ -5,8 +5,12 @@ SMS is done via Onnorokom.com API and in fact this code is intended to demonstra
 
 Server is written in PHP using the Laravel framework.
 
-##Installation
+## Installation
+Run following command:
 
+```
+composer require hizbul/laravel-sms-verification
+```
 Once this library is installed you need to register the service provider. Open `config/app.php` and find the `providers` key.
 
 ```
@@ -58,3 +62,4 @@ If an exception was thrown during the SMS verification process, output contains 
 ### Notes
 1.  The authorization code sent is only valid for 10 minutes
 2.  The code can be verified only once.  After the first success, it will be invalidated
+3.  If you found any caching issue, then use any other cache driver than `files`.

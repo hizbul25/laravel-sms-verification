@@ -8,7 +8,7 @@ return [
     | Your OnnoRokom Username #
     |
     */
-    'username' => '01711362168',
+    'username' => env('SMS_VERIFACTION_USERNAME', ''),
     /*
     |--------------------------------------------------------------------------
     | OnnoRokom Password
@@ -17,43 +17,31 @@ return [
     | Password that you will get by sms.
     |
     */
-    'password' => '16435',
+    'password' => env('SMS_VERIFACTION_PASS',''),
     /*
     |--------------------------------------------------------------------------
-    | Type
+    | Code Length
     |--------------------------------------------------------------------------
     |
-    | SMS format Text or Ucs
+    | SMS Code Length
     |
     */
-    'type' => env('ONNOROKOM_SMS_TYPE', 'TEXT'),
+    'code-length' => env('SMS_VERIFACTION_CODE_LENGTH', 6),
+
     /*
     |--------------------------------------------------------------------------
-    | Delivery Type
+    | Code Life Time
     |--------------------------------------------------------------------------
     |
-    | OneToOne - Single Sms Send Method
-    | OneToOneBulk - Each and every number contains individual message
-    | OneToMany - Bulk Sms Method
     |
     */
-    'delivery_type' => env('ONNOROKOM_DELIVERY_TYPE', 'OneToOne'),
+    'code-lifetime' => env('SMS_VERIFACTION_CODE_LIFETIME', 10),
     /*
     |--------------------------------------------------------------------------
-    | Mask Name
+    | Code Prefix
     |--------------------------------------------------------------------------
     |
-    | Mask Name which is allowed to your client panel
     |
     */
-    'mask_name' => env('ONNOROKOM_MASK_NAME', 'DemoMask'),
-    /*
-    |--------------------------------------------------------------------------
-    |Campaign
-    |--------------------------------------------------------------------------
-    |
-    | Campaign Name
-    |
-    */
-    'campaign_name' => env('ONNOROKOM_CAMPAIGN', ''),
+    'cache-prefix' => env('SMS_VERIFACTION_CODE_PREFIX', ''),
 ];
