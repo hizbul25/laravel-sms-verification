@@ -71,7 +71,7 @@ class Sender implements SenderInterface
      */
     public function send($to, $text)
     {
-        $soapClient = new \nusoap_client("https://api2.onnorokomSMS.com/sendSMS.asmx?wsdl", 'wsdl');
+        $soapClient = new \SoapClient("https://api2.onnorokomsms.com/sendSMS.asmx?wsdl");
         $onnorokomArray = [
             'userName'      => $this->userName,
             'userPassword'  => $this->password,
@@ -81,18 +81,19 @@ class Sender implements SenderInterface
             'maskName'      => '',
             'campaignName'  => ''
         ];
-
         try{
-            $value = $soapClient->call('OneToOne', array($onnorokomArray));
+            $value = $soapClient->__call('OneToOne', array($onnorokomArray));
+            $func = 'OneToOneResult';
+            $arrResult = explode("||", $value->$func);
+            \Log::info($arrResult[0] .' '.$arrResult[1]);
         }
         catch (\SoapFault $ex)
         {
             throw new SenderException('SMS sending was failed', null, 0, $ex);
         }
         catch(\Exception $ex) {
-            throw new SenderException('What the hell', null, 0, $ex);
+            throw new SenderException('What the hell', null, 0, $ex->getMessage());
         }
-        return true;
     }
 
 }
