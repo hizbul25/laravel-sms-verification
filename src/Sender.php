@@ -84,8 +84,7 @@ class Sender implements SenderInterface
         try{
             $value = $soapClient->__call('OneToOne', array($onnorokomArray));
             $func = 'OneToOneResult';
-            $arrResult = explode("||", $value->$func);
-            \Log::info($arrResult[0] .' '.$arrResult[1]);
+            return $arrResult = explode("||", $value->$func);
         }
         catch (\SoapFault $ex)
         {
