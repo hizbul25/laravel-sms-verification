@@ -2,7 +2,7 @@
 namespace Hizbul\SmsVerification;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Support\Str;
 
 class SmsVerificationProvider extends ServiceProvider
 {
@@ -37,7 +37,7 @@ class SmsVerificationProvider extends ServiceProvider
      */
     protected function isLumen()
     {
-        return str_contains($this->app->version(), 'Lumen') === true;
+        return Str::contains($this->app->version(), 'Lumen') === true;
     }
     /**
      * Register endpoints in routing
